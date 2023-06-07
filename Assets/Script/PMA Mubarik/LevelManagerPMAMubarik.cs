@@ -10,6 +10,7 @@ public class LevelManagerPMAMubarik : MonoBehaviour
 {
     //Tarodev - https://www.youtube.com/watch?v=OmobsXZSRKo&ab_channel=Tarodev
     public static LevelManagerPMAMubarik instance;
+    // by making it a static variable it becomes a singleton pattern since it ensures that only 1instance exists throughout the application
     //references in inspector
     [SerializeField] private GameObject _loaderCanvas;
     [SerializeField] private Image _progressBar;
@@ -19,6 +20,8 @@ public class LevelManagerPMAMubarik : MonoBehaviour
         // if it is already assigned then destroy this object.
         if(instance == null)
         {
+            //This keyword refers to the current instance of the class, it means that the curretn instance of the script is being assigned to the instance variable.
+            //By assigning the current instance to a static variable it allows other scripts to access the functionality without needing a direct reference to the gameobject - Can be access by its class name - LevelManagerPMaMubarik.instance.
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
